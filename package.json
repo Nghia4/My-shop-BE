@@ -21,10 +21,8 @@
     "mongoose": "^7.2.2",
     "nodemailer": "^6.9.4"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.22"
-  },
-  "bin" : {
-    "execute" : "index.js"
-} 
+  "devDependencies": {},
+  "bin": {
+    "execute": "index.js"
+  }
 }
