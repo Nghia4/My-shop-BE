@@ -1,6 +1,4 @@
 const Product = require("../models/ProductModel")
-const bcrypt = require('bcrypt')
-const { generalAccessToken, generalRefreshToken } = require("./Jwtservice")
 
 const createProduct = (newProduct) => {
     return new Promise(async (resolve, reject) => {

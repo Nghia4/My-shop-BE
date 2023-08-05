@@ -1,5 +1,5 @@
 const User = require("../models/UserModel")
-const bcrypt = require('bcrypt')
+// const bcrypt = require('bcrypt')
 const { generalAccessToken, generalRefreshToken } = require("./Jwtservice")
 
 const createUser = (newUser) => {
@@ -17,11 +17,11 @@ const createUser = (newUser) => {
                 })
             }
             // hash password
-            const hash = bcrypt.hashSync(password, 10)
+            // const hash = bcrypt.hashSync(password, 10)
             // create newUser
             const createdUser = await User.create({
                 email,
-                password:hash,
+                password:abcd,
                 confirmPassword:hash
             })
             if(createdUser){
@@ -52,17 +52,17 @@ const loginUser = (userLogin) => {
                 })
             }
             // check password with hash
-            const comparePassword = bcrypt.compareSync(password, checkUser.password)
-            if(!comparePassword) {
-                resolve({
-                    status:'ERR',
-                    message:'the user or password is not defined'
-                })
-            }
-            const access_token = await generalAccessToken({
-                id: checkUser._id,
-                isAdmin: checkUser.isAdmin
-            })
+            // const comparePassword = bcrypt.compareSync(password, checkUser.password)
+            const comparePassword = true
+            //     resolve({
+            //         status:'ERR',
+            //         message:'the user or password is not defined'
+            //     })
+            // }
+            // const access_token = await generalAccessToken({
+            //     id: checkUser._id,
+            //     isAdmin: checkUser.isAdmin
+            // })
             const refresh_token = await generalRefreshToken({
                 id: checkUser._id,
                 isAdmin: checkUser.isAdmin
